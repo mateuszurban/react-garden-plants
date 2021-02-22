@@ -6,7 +6,11 @@ const List = ({ plants }) => {
     <Plant name={plants.name} days={plants.days} key={plants.key} />
   ));
   return (
-    <div>
+    <div className="plantsList">
+      <div className="plantsListKey">
+        <li className="plantName">name</li>
+        <li className="plantHarvest">harvest</li>
+      </div>
       <ul>{mapOverPlantList}</ul>
     </div>
   );

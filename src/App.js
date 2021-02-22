@@ -11,7 +11,8 @@ function App() {
     { name: 'spinach', days: 55, key: uniqid() },
   ]);
   return (
-    <div>
+    <div className="app">
+      <h2>all plants:</h2>
       <List plants={plants} />
     </div>
   );

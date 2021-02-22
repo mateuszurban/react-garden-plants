@@ -10,3 +10,68 @@ html {
   font-size: 16px;
   color: #628a63;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 80vw;
+
+  margin: 0 auto;
+}
+
+h2 {
+  padding-left: 5vw;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: 'Neuton', serif;
+  font-size: 4.5rem;
+}
+
+li {
+  list-style-type: none;
+}
+
+.plantsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.plantsListKey {
+  display: flex;
+  height: 2.5em;
+  align-items: center;
+
+  font-size: 1.1em;
+  color: white;
+
+  background-color: #628a63;
+  border-radius: 15px;
+}
+
+.plantWrapper {
+  display: flex;
+  align-items: center;
+
+  height: 3em;
+
+  font-size: 1.5em;
+}
+
+/* 'plantName' and 'plantHarvest' are repeated in List.js and Plant.js components. Now, I can use the same flex in list's key and each individual plant. It should allow them to stay properly vertically aligned, while reducing amount of CSS. */
+.plantName {
+  flex: 4;
+  padding-left: 5vw;
+}
+
+.plantHarvest {
+  flex: 3;
+}
+
+/* Using div instead of divider. Reason: I'm not sure if divider would be a good fit here in terms of accessibility. For now, I just need to visually separate plants. */
+.separator {
+  width: 96%;
+  height: 3px;
+  margin: 0 auto;
+  background-color: hsl(122, 17%, 76%);
+}

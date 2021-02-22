@@ -3,9 +3,11 @@ import React from 'react';
 const Plant = ({ name, days }) => {
   return (
     <div>
-      <li>
-        {name}, {days} days to harvest
-      </li>
+      <div className="plantWrapper">
+        <li className="plantName">{name}</li>
+        <li className="plantHarvest">{days} days to harvest</li>
+      </div>
+      <div className="separator"></div>
     </div>
   );
 };
