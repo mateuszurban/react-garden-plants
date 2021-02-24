@@ -51,7 +51,7 @@ function App() {
   return (
     <div className="app">
       <h2>all plants:</h2>
-      <List plants={plants} />
+      <List plants={plants} setPlants={setPlants} />
       <div className="inputWrapper">
         <button className="button showForm" onClick={toggleFormDisplay}>
           new

@@ -61,12 +61,16 @@ li {
 
 /* 'plantName' and 'plantHarvest' are repeated in List.js and Plant.js components. Now, I can use the same flex in list's key and each individual plant. It should allow them to stay properly vertically aligned, while reducing amount of CSS. */
 .plantName {
-  flex: 4;
+  flex: 8;
   padding-left: 5vw;
 }
 
 .plantHarvest {
-  flex: 3;
+  flex: 7;
+}
+
+.plantAction {
+  flex: 1;
 }
 
 /* Using div instead of divider. Reason: I'm not sure if divider would be a good fit here in terms of accessibility. For now, I just need to visually separate plants. */
@@ -178,4 +182,8 @@ input[type='number'] {
 
 .submitForm {
   font-weight: bold;
+}
+
+.plantDelete {
+  color: rgba(98, 138, 99, 0.6);
 }
