@@ -10,6 +10,10 @@ const Form = ({
   setInputDays,
   plants,
   setPlants,
+  datePlanted,
+  setDatePlanted,
+  dateHarvest,
+  setDateHarvest,
 }) => {
   // Assigns new class, based on formVisibility.
   const getVisibility = formVisibility ? 'visible' : 'hidden';
@@ -27,11 +31,23 @@ const Form = ({
     setInputDays(event.target.value);
   };
 
+  const handleDateChange = (event) => {
+    setDatePlanted(event.target.value);
+  };
+
   const handleFormSubmit = (event) => {
     // Prevents refresh.
     event.preventDefault();
     // Adds to 'plants' array with spread operator.
-    setPlants([...plants, { name: inputName, days: inputDays, key: uniqid() }]);
+    setPlants([
+      ...plants,
+      {
+        name: inputName,
+        days: inputDays,
+        datePlanted: datePlanted,
+        key: uniqid(),
+      },
+    ]);
     // Deletes all input values from form.
     clearForm();
     // Closes the form.
@@ -42,6 +58,7 @@ const Form = ({
   const clearForm = () => {
     setInputName('');
     setInputDays('');
+    setDatePlanted('');
   };
 
   return (
@@ -61,6 +78,13 @@ const Form = ({
           value={inputDays}
           type="number"
           placeholder="120 days"
+        />
+        <input
+          className="formInput"
+          onChange={handleDateChange}
+          value={datePlanted}
+          type="date"
+          placeholder="planted on..."
         />
         <div className="buttons">
           <button className="button closeForm" onClick={handleCloseForm}>

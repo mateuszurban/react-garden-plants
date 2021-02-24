@@ -12,11 +12,39 @@ const Plant = ({ name, days, plants, setPlants, plant }) => {
     setPlants(filterOut);
   };
 
+  // All time calculations are hidden in this function. It uses growth time and today's date to return an answer: how long do they have to wait, until plant's ready.
+  // Probably needs refactoring, to use .getTime() instead of variables with milliseconds. Will complicate final rule, but will definitely clean up the code.
+  const daysToHarvest = () => {
+    // Growth time in milliseconds format. One day is 86 400 000 miliseconds.
+    const growthTime = days * 86400000;
+
+    // Planting date in milliseconds format.
+    const datePlantedConverted = Date.parse(plant.datePlanted);
+
+    // Harvest date in milliseconds format.
+    const harvestDate = datePlantedConverted + growthTime;
+
+    // Today's date in milliseconds format.
+    const today = Date.now();
+
+    // How many days until harvest?
+    const daysLeft = (harvestDate - today) / 86400000;
+
+    // Rounds up days, to display full number instead of decimals or zero.
+    const daysLeftRoundedUp = Math.ceil(daysLeft);
+
+    if (daysLeft < 1) {
+      return `it's ready!`;
+    } else {
+      return daysLeftRoundedUp + ' days to harvest';
+    }
+  };
+
   return (
     <div>
       <div className="plantWrapper">
         <li className="plantName">{name}</li>
-        <li className="plantHarvest">{days} days to harvest</li>
+        <li className="plantHarvest">{daysToHarvest()}</li>
         <li className="plantAction plantDelete" onClick={handlePlantDelete}>
           <FontAwesomeIcon icon={faTrash} />
         </li>

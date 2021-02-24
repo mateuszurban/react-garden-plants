@@ -7,15 +7,13 @@ import Form from './components/Form';
 function App() {
   // State-related:
   // Creates array of objects, to be displayed as a list. For now, it contains dummy objects, used in the List.js component.
-  const [plants, setPlants] = useState([
-    { name: 'tomato', days: 151, key: uniqid() },
-    { name: 'pepper', days: 210, key: uniqid() },
-    { name: 'spinach', days: 55, key: uniqid() },
-  ]);
+  const [plants, setPlants] = useState([]);
 
   const [formVisibility, setFormVisibility] = useState(false);
   const [inputName, setInputName] = useState('');
   const [inputDays, setInputDays] = useState('');
+  const [datePlanted, setDatePlanted] = useState('');
+  const [dateHarvest, setDateHarvest] = useState('');
 
   //Local storage logic:
   // Load storage on start:
@@ -66,6 +64,10 @@ function App() {
         setInputDays={setInputDays}
         plants={plants}
         setPlants={setPlants}
+        datePlanted={datePlanted}
+        setDatePlanted={setDatePlanted}
+        dateHarvest={dateHarvest}
+        setDateHarvest={setDateHarvest}
       />
     </div>
   );
