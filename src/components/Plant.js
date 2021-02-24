@@ -43,7 +43,7 @@ const Plant = ({ name, days, plants, setPlants, plant }) => {
   return (
     <div>
       <div className="plantWrapper">
-        <li className="plantName">{name}</li>
+        <li className="plantName plantMainName">{name}</li>
         <li className="plantHarvest">{daysToHarvest()}</li>
         <li className="plantAction plantDelete" onClick={handlePlantDelete}>
           <FontAwesomeIcon icon={faTrash} />

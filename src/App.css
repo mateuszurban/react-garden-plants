@@ -192,3 +192,7 @@ input[type='time']::-webkit-clear-button {
 .plantDelete {
   color: rgba(98, 138, 99, 0.6);
 }
+
+.plantMainName {
+  font-weight: 700;
+}
